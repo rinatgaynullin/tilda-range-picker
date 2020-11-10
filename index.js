@@ -6,10 +6,7 @@ class TbPriceComponent {
       thirty: 0.7,
     };
     this.baseMonthPrices = [
-      {
-        type: 0,
-        value: 2990,
-      },
+      
       {
         type: 1,
         value: 2990,
@@ -34,10 +31,7 @@ class TbPriceComponent {
         type: 6,
         value: 24590,
       },
-      {
-        type: 7,
-        value: 24590,
-      },
+    
     ];
     this.monthsCount = 12;
 
