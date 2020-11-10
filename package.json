@@ -1,0 +1,15 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "fa",
+  "main": "index.js",
+  "dependencies": {
+    "dayjs": "^1.9.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "fa"
+  },
+  "author": "",
+  "license": "ISC"
+}
