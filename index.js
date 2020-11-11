@@ -34,12 +34,13 @@ class TbPriceComponent {
     
     ];
     this.monthsCount = 12;
-
-    this.test = document.querySelector(".tb-test");
+    this.buttonRoutText1 = 'Попробовать бесплатно    14 дней';
+    this.buttonRoutText2 = 'Оставить заявку';
+    this.mountCountShowPlace = document.querySelector('#tb-card-months-count');
+    this.monthFinalPrice = document.querySelector("#tb-sum-per-mount");
     this.rangeSelector = document.querySelector("#tb-range");
-    this.selectDurationButtons = document.querySelectorAll(
-      ".tb-select-duration-button"
-    );
+    this.selectDurationButtons = document.querySelectorAll('.tb-select-duration-button');
+    this.routeButton = document.querySelector('#tb-route-button');
 
     this._init();
   }
@@ -49,9 +50,7 @@ class TbPriceComponent {
     this.changeMonthsCount();
     this.changePlaceInner();
     this.rangeSelector.addEventListener("change", (e) => {
-      const { value } = e.target;
-      console.log(value);
-      this.changePlaceInner(value);
+      this.changePlaceInner();
     });
     this.selectDurationButtons.forEach((button, index) => {
       button.addEventListener("click", (e) => {
@@ -67,15 +66,29 @@ class TbPriceComponent {
       (price) => value === price.type
     );
     const discount = this.getDiscount();
+    if (value <= 3) {
+      this.routeButton.innerHTML = this.buttonRoutText1;
+      this.routeButton.href = 'https://textback.ru/registration'
+    }
+    
+    if (value > 3) {
+      this.routeButton.innerHTML = this.buttonRoutText2;
+      this.routeButton.href = 'https://textback.ru/whatsapp#popup:myform'
+    }
 
-    this.test.innerHTML = basePrice.value * discount;
+    this.monthFinalPrice.innerHTML =  discount === 1 ? 
+    (basePrice.value * discount).toLocaleString("ru-RU",{style:'decimal'}) : 
+    (Math.ceil((basePrice.value * discount)/100)*100).toLocaleString("ru-RU",{style:'decimal'});
   }
 
   changeMonthsCount(value) {
-    if (!value) return (this.monthsCount = 12);
-    const monthCount = +value;
-    if (value) this.monthsCount = monthCount;
-
+    if (!value) this.monthsCount = 12;
+   
+    if (value) {
+      const monthCount = +value;
+      this.monthsCount = monthCount
+    };
+    this.mountCountShowPlace.innerHTML = this.monthsCount;
     this.changePlaceInner();
   }
 
