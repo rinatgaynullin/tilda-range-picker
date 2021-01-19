@@ -2,406 +2,20 @@
   <html lang="ru">
 
   <head>
-    <style>
-     .component-wrapper {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 100%;
-        justify-items: center;
-        margin: 0 auto;
-      }
-
-      .tb-range__wraper {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-items: center;
-      }
-
-      #tb-range {
-        display: block;
-        -webkit-appearance: none;
-        margin: 26px 0 4px 0;
-        width: 100%;
-
-      }
-
-
-      #tb-range:focus {
-        outline: none;
-      }
-
-      #tb-range::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 20px;
-        cursor: pointer;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        background: linear-gradient(90deg, rgba(1, 138, 255, 0.2) 58.71%, rgba(29, 190, 165, 0.7) 60.76%);
-        box-shadow: inset 0px 0px 4px rgba(1, 179, 255, 0.4);
-        border-radius: 10px;
-        border: none;
-      }
-
-      #tb-range::-webkit-slider-thumb {
-        border: none;
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        background: url(https://f-dev.textback.io/cdn/K36mKhQzNOo/check.svg);
-        background-size: 100% 100%;
-        cursor: pointer;
-        -webkit-appearance: none;
-        margin-top: -25px;
-        z-index: 100;
-      }
-
-      #tb-range:focus::-webkit-slider-runnable-track {
-        background: linear-gradient(90deg, rgba(1, 138, 255, 0.2) 58.71%, rgba(29, 190, 165, 0.7) 60.76%);
-        box-shadow: inset 0px 0px 4px rgba(1, 179, 255, 0.4);
-        border-radius: 10px;
-      }
-
-      #tb-range::-moz-range-track {
-        width: 100%;
-        height: 20px;
-        cursor: pointer;
-        background: linear-gradient(90deg, rgba(1, 138, 255, 0.2) 58.71%, rgba(29, 190, 165, 0.7) 60.76%);
-        box-shadow: inset 0px 0px 4px rgba(1, 179, 255, 0.4);
-        border-radius: 5px;
-      }
-
-      #tb-range::-moz-range-thumb {
-        height: 65px;
-        width: 65px;
-        border-radius: 50%;
-        background: url(https://f-dev.textback.io/cdn/K36mKhQzNOo/check.svg);
-        cursor: pointer;
-        z-index: 100;
-      }
-
-      #tb-range::-ms-track {
-        width: 100%;
-        height: 20px;
-        cursor: pointer;
-        background: transparent;
-        border-color: transparent;
-        border-width: 16px 0;
-        color: transparent;
-      }
-
-      #tb-range::-ms-fill-lower {
-        background: #2a6495;
-        border: 0.2px solid #010101;
-        border-radius: 2.6px;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      }
-
-      #tb-range::-ms-fill-upper {
-        background: #3071a9;
-        border: 0.2px solid #010101;
-        border-radius: 2px;
-        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        z-index: 100;
-      }
-
-      #tb-range::-ms-thumb {
-        height: 65px;
-        width: 65px;
-        border-radius: 50%;
-        background: url(https://f-dev.textback.io/cdn/K36mKhQzNOo/check.svg);
-        cursor: pointer;
-        z-index: 100;
-      }
-
-      #tb-range:focus::-ms-fill-lower {
-        background: #3071a9;
-      }
-
-      #tb-range:focus::-ms-fill-upper {
-        background: #367ebd;
-      }
-      
-      .tb-select-duration-buttons__wrapper {
-            display: grid;
-            grid-template-columns: repeat(3, max-content);
-            width: 100%;
-            justify-content: center;
-        }
-
-      .tb-select-duration-button {
-        text-transform: uppercase;
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 25px;
-        width: 190px;
-        height: 70px;
-        left: 439px;
-        top: 733px;
-        background: #F8FAF9;
-        border: none;
-        margin: 0px -2px 0 -2px;
-        padding: 0;
-        box-shadow: 0px 1px 1px #000000;
-      }
-
-      .tb-active {
-        background: #FFFFFF;
-        box-shadow: 0px -1px 1px rgb(187, 187, 187);
-      }
-
-      .tb-head-text__wrapper {
-        width: 100%;
-        display: grid;
-        grid-template-columns: max-content max-content;
-        justify-content: space-around;
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 22px;
-        color: #333333;
-        text-align: center;
-        margin: 0 0 80px 0;
-      }
-
-      .tb-head-text__waba {
-        color: #1DBEA5;
-        display: block;
-        text-align: center;
-      }
-
-      .tb-range__dialogs-text-wrapper {
-        width: 100%;
-        display: grid;
-        justify-content: left;
-        grid-template-columns: max-content;
-        margin: 0 0 35px;
-      }
-
-      .tb-range__dialogs-text {
-        width: 191px;
-        height: 44px;
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 20px;
-        color: rgba(51, 51, 51, 0.6);
-      }
-      .tb-range-scale {
-          margin-bottom: 7px;
-          display:block;
-          width: 100%;
-      }
-
-      .tb-range-scale__wrapper {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(6,60px);
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 18px;
-        line-height: 25px;
-        color: #000000;
-        justify-content: space-between;
-        padding: 0 !important;
-        list-style: none;
-        text-align: left;
-      }
-      
-     .tb-range-scale__points > span {
-       display: grid;
-         z-index: 0;
-         position: relative;
-         justify-content: center;
-     }
-  
-    .tb-range-scale__points > span::before {
-      position: absolute;
-      top: -38px;
-      right: 0;
-      left: 0;
-      content: "";
-      margin: 0 auto;
-      width: 12px;
-      height: 12px;
-      background: #018AFF;
-      border-radius: 50%;
-  }
-      
-      
-
-    .tb-card-wrapper {
-        height: 184px;
-        border: 1px dashed #018AFF;
-        box-sizing: border-box;
-        border-radius: 30px;
-        margin-top: 50px;
-        display: grid;
-        grid-template-columns: max-content;
-        grid-template-rows: repeat(3, max-content);
-        justify-content: center;
-        padding: 25px 60px 30px 60px;
-        text-align: center;
-      }
-
-      .card-blue-text {
-        width: 123px;
-        height: 49px;
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 36px;
-        line-height: 49px;
-        color: #018AFF;
-      }
-
-      .card-black-text {
-        width: 43px;
-        height: 25px;
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 25px;
-        color: #333333;
-      }
-      
-      .card-image {
-            align-self: center;
-            height: 44px;
-            position: relative;
-            top: 7px;
-            left: 6px;
-      }
-
-      .tb-card-months-count__wrapper {
-        height: 16px;
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 12px;
-        line-height: 16px;
-        color: #333333;
-        text-align: center;
-      }
-
-      .tb-card-button {
-        margin-top: 26px;
-        width: 235px;
-        height: 43px;
-        background: #ED7171;
-        border-radius: 30px;
-        box-shadow: none;
-        border: none;
-        padding: 0 13px;
-      }
-
-      .tb-card-button>a {
-        text-decoration: none;
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 19px;
-        color: #FFFFFF;
-        height: max-content;
-        width: 200px;
-        text-transform: uppercase;
-        color: #fff !important;
-        display: block;
-        margin: 0 auto;
-      }
-
-      .tb-discount-icon-wrapper {
-        position: relative;
-      }
-
-      .tb-dicount-icon {
-        position: absolute;
-        width: 38px;
-        height: 38px;
-        background: #ED7171;
-        box-shadow: 0px 0px 10px rgba(253, 169, 152, 0.4);
-        font-family: Open Sans;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 38px;
-        border-radius: 50%;
-        color: #FFFFFF;
-        text-align: center;
-        display: block;
-        top: -70px;
-        right: 8px;
-      }
-      #tb-route-button{
-        text-transform: uppercase;
-        color: #fff !important;
-      }
-      body {
-        width: 850px;
-        margin: 0 auto;
-      }
-      
-      @media screen and (max-width: 900px) {
-        body {
-          width: 350px;
-        }
-         .tb-range-scale__wrapper {
-            font-size: 10px;
-            grid-template-columns: repeat(6,30px);
-         }
-         
-         .tb-head-text__wrapper {
-             font-size: 10px;
-         }
-         
-         .tb-card-wrapper {
-            padding: 15px 10px 20px 10px;
-         }
-         
-         .tb-select-duration-button {
-            font-size: 14px;
-            line-height: 20px;
-            width: 100%;
-            height: 40px;
-            background: #F8FAF9;
-            border: none;
-            margin: 0px -2px 0 -2px;
-            padding: 0;
-            box-shadow: 0px 1px 1px #000000;
-          }
-          
-          .tb-active {
-            background: #FFFFFF;
-            box-shadow: 0px -1px 1px rgb(187, 187, 187);
-          }
-          
-          .tb-dicount-icon {
-              top: -55px;
-          }
-          
-          .tb-select-duration-buttons__wrapper {
-            
-            grid-template-columns: repeat(3, 1fr);
-            
-          }
-      }
-     
-      
-    </style>
+    <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
     <div class="component-wrapper">
-      <div class="tb-head-text__wrapper">
-        <div class="tb-head-text__free">Бесплатно 14 дней</div>
-        <div class="tb-head-text__waba">Whatsapp Business API  <br/> БЕСПЛАТНО</div>
+      <div class="tb-head-text__wrapper grid-two-columns">
+        <div class="tb-head-text__free visible">Бесплатно 14 дней</div>
+        <div class="tb-head-text__waba">Официальный WhatsApp <br/> БЕСПЛАТНО</div>
       </div>
+      <div class="tb-images-brakets__wrapper grid-two-columns">
+          <img class="waba-three-months visible" src="https://f-dev.textback.io/cdn/tN5rJCzgJCQ/figurnaa_skobka1.svg"> 
+          <img class="waba-three-months visible" src="https://f-dev.textback.io/cdn/-tDnLc83reg/figurnaa_skobka2.svg">
+          <img class="waba-more-three-months" src="https://f-dev.textback.io/cdn/S2eMrE9fdL0/braket-full.png">
+        </div>
       <div class="tb-range__wraper">
         <input id="tb-range" type="range" value="4" min="1" max="6">
       </div>
@@ -411,9 +25,9 @@
             <li class="tb-range-scale__points"><span>1 000</span></li>
             <li class="tb-range-scale__points"><span>3 000</span></li>
             <li class="tb-range-scale__points"><span>5 000</span></li>
-            <li class="tb-range-scale__points"><span>10 000</span></li>
-            <li class="tb-range-scale__points"><span>20 000</span></li>
-            <li class="tb-range-scale__points"><span>50 000+</span></li>
+            <li class="tb-range-scale__points tb-green-bg"><span>10 000</span></li>
+            <li class="tb-range-scale__points tb-green-bg"><span>20 000</span></li>
+            <li class="tb-range-scale__points tb-green-bg"><span>50 000+</span></li>
         </ul>
       </div>
        <div class="tb-range__dialogs-text-wrapper">
@@ -424,26 +38,30 @@
         <button class="tb-select-duration-button" value="3">3 месяца</button>
         <button class="tb-select-duration-button" value="6">6 месяцев
           <div class="tb-discount-icon-wrapper">
-            <span class="tb-dicount-icon">-20%</span>
+            <span class="tb-dicount-icon">-%</span>
           </div>
         </button>
         <button class="tb-select-duration-button tb-active" value="12">12 месяцев
           <div class="tb-discount-icon-wrapper">
-            <span class="tb-dicount-icon">-30%</span>
+            <span class="tb-dicount-icon">-%</span>
           </div>
         </button>
       </div>
 
       <div class="tb-card-wrapper">
         <div class="tb-card-head-text">
-          <span id="tb-sum-per-mount" class="card-blue-text"></span><span class="card-blue-text"><img class="card-image" src="https://f-dev.textback.io/cdn/dUC_mw9yaSA/_.svg">    </span><span
+          <span id="tb-sum-per-mount" class="card-blue-text"></span><span class="card-blue-text"><img class="card-image" src="https://f-dev.textback.io/cdn/E0PxEeWtW-E/_.svg">    </span><span
             class="card-black-text">/мес</span>
         </div>
 
         <div class="tb-card-months-count__wrapper">
-          <span>при оплате за </span> <span id="tb-card-months-count"></span> <span>месяцев</span>
+          <span>при оплате за </span> <span id="tb-card-months-count"></span> <span id="tb-pluralize-text">месяцев</span>
+          
+       
+        <div class="tb-card-months-count__wrapper">
+            <span>Оплата на сумму</span> <span id="tb-card-months-sum"></span> 
         </div>
-
+        
         <div class="tb-card-button-wrapper">
           <button class="tb-card-button" type="button">
             <a href="" id="tb-route-button"></a>
@@ -451,10 +69,8 @@
         </div>
       </div>
     </div>
+</div>
     <script src="./index.js"></script>
-    <script>
-
-    </script>
   </body>
 
   </html>
